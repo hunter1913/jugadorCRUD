@@ -35,8 +35,8 @@ public class Servidor {
                     buscarJugador();
 //                    mostrarMenu();
                 case 3:
-//                    modificarJugador();
-//                    mostrarMenu();
+                    modificarJugador();
+
                     break;
 
                 case 4:
@@ -85,4 +85,24 @@ public class Servidor {
            Menu();
            
     }
+    
+    public void modificarJugador(){
+    this.jugadorI = new JPAJugadorImpl();
+    Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el id del jugador a editar ");
+        int id = scanner.nextInt();
+        jugadorI.buscarId(id);
+        System.out.print("Nombre del jugador: ");
+        String nombre = scanner.nextLine();
+        System.out.print("email : ");
+        String email = scanner.nextLine();
+        System.out.print("telefono : ");
+        String telefono = scanner.nextLine();
+    
+    
+    
+    
+    }
+    
+    
 }
