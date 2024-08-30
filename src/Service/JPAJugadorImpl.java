@@ -18,8 +18,8 @@ public class JPAJugadorImpl implements JPAJugador {
     public static Jugador jugador;
 
     @Override
-    public void crear(String nombre, String email, String telefono) {
-        jugador = new Jugador(0, nombre, email, telefono);
+    public void crear(Jugador jugador) {
+
         jugadores.add(jugador);
         System.out.println("Jugador creado = " + jugador);
 
@@ -61,7 +61,7 @@ public class JPAJugadorImpl implements JPAJugador {
                 System.out.println("Se ha encontrado el usuario con Id:" + id);
                 System.out.println(jugador.toString());
             }
-        }//end for
+     }
     }
 
     static void printJugadores(List<Jugador> jugadores) {
