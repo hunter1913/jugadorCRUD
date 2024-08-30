@@ -8,7 +8,7 @@ import model.Jugador;
 public class Servidor {
 
     static int opcion = -1;
-    private JPAJugador jugador2;
+    private JPAJugador jugadorI;
 
     public void Menu() {
 
@@ -29,10 +29,10 @@ public class Servidor {
 
                 case 1:
                     agregarJugador();
-//                    mostrarMenu();
+
                     break;
                 case 2:
-//                    buscarJugador();
+                    buscarJugador();
 //                    mostrarMenu();
                 case 3:
 //                    modificarJugador();
@@ -45,16 +45,16 @@ public class Servidor {
                     break;
 
                 case 5:
-//                    listarJugadores();
-//                    mostrarMenu();
+                    listarJugadores();
+
                     break;
             }
-        } while (opcion != 5);
+        } while (opcion != 6);
     }
 
     public void agregarJugador() {
-        
-        this.jugador2 = new JPAJugadorImpl();
+
+        this.jugadorI = new JPAJugadorImpl();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nombre del jugador: ");
         String nombre = scanner.nextLine();
@@ -62,14 +62,27 @@ public class Servidor {
         String email = scanner.nextLine();
         System.out.print("telefono : ");
         String telefono = scanner.nextLine();
-        
-        Jugador jugador1 = new Jugador(nombre, email, telefono);
-        jugador2.crear(jugador1);
-        
-        
-        
+
+        Jugador jugador = new Jugador(nombre, email, telefono);
+        jugadorI.crear(jugador);
+        System.out.println(" ");
+        Menu();
+
     }
-    
-    
-    
+
+    public void listarJugadores() {
+        this.jugadorI = new JPAJugadorImpl();
+        jugadorI.mostrarTodos();
+        Menu();
+    }
+
+    public void buscarJugador() {
+        this.jugadorI = new JPAJugadorImpl();
+         Scanner scanner = new Scanner(System.in);
+           System.out.print("Ingrese el ID del jugador a buscar: ");
+           int id = scanner.nextInt();
+           jugadorI.buscarId(id);
+           Menu();
+           
+    }
 }
