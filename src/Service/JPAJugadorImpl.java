@@ -17,11 +17,13 @@ public class JPAJugadorImpl implements JPAJugador {
     private static List<Jugador> jugadores = new ArrayList<Jugador>();
     public static Jugador jugador;
 
+    
+    
     @Override
     public void crear(Jugador jugador) {
-
+//        jugador = new Jugador(nombre, email, telefono);
         jugadores.add(jugador);
-        System.out.println("Jugador creado = " + jugador);
+        System.out.println("Jugador agregado = " + jugador);
 
     }
 

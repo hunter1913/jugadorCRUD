@@ -1,4 +1,3 @@
-
 package model;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -8,16 +7,20 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author Andretty
  */
 public class Jugador {
-    private static final AtomicInteger count = new AtomicInteger(0);
-    private   int id=0;
+
+    private final int id;
     private String nombre;
     private String email;
     private String telefono;
+    private static int contadorJugadores;
+    
+    public Jugador(){
+    this.id = ++Jugador.contadorJugadores;
+    
+    }
 
-    public Jugador(int id,String nombre, String email, String telefono) {
-        this.id = count.incrementAndGet();
-        //this.setId(id++);//sino se le asigna el id, el id siempre será el mismo
-        //User.id=id;//incrementamos el id automaticamente cada vez que se cree un nuevo usuario
+    public Jugador(String nombre, String email, String telefono) {
+        this(); 
         this.nombre = nombre;
         this.email = email;
         this.telefono = telefono;
@@ -27,9 +30,7 @@ public class Jugador {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     public String getNombre() {
         return nombre;
@@ -60,6 +61,4 @@ public class Jugador {
         return "Jugador{" + "id=" + id + ", nombre=" + nombre + ", email=" + email + ", telefono=" + telefono + '}';
     }
 
-
-        
 }
