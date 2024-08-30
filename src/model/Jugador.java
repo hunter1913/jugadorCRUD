@@ -10,34 +10,33 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Jugador {
     private static final AtomicInteger count = new AtomicInteger(0);
     private   int id=0;
-    private String names;
+    private String nombre;
     private String email;
-    private String phone;
+    private String telefono;
 
-    public Jugador(int id,String names, String email, String phone) {
+    public Jugador(int id,String nombre, String email, String telefono) {
         this.id = count.incrementAndGet();
         //this.setId(id++);//sino se le asigna el id, el id siempre será el mismo
         //User.id=id;//incrementamos el id automaticamente cada vez que se cree un nuevo usuario
-        this.names = names;
+        this.nombre = nombre;
         this.email = email;
-        this.phone = phone;
+        this.telefono = telefono;
     }
-
 
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
-       this.id = id;
+        this.id = id;
     }
 
-    public String getNames() {
-        return names;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNames(String names) {
-        this.names = names;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getEmail() {
@@ -48,25 +47,19 @@ public class Jugador {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", names='" + names + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+        return "Jugador{" + "id=" + id + ", nombre=" + nombre + ", email=" + email + ", telefono=" + telefono + '}';
     }
-    
-    
-    
-    
+
+
+        
 }
