@@ -10,10 +10,9 @@ public interface JPAJugador {
     *que se implementarán en la clase JPAUsersImpl
      */
 
-    public void create(String body);
+    public void crear(String body);
     public List<Jugador>  readAll();
-    public void updateById(String body, int id);
-    public void deleteById(int id);
-    public void findAll();
-    public void findById(int id);
+    public void actualizar(String body, int id);
+    public void borrar(int id);
+    public void buscar(int id);
 }
