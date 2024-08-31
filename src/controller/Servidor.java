@@ -77,9 +77,9 @@ public class Servidor {
         System.out.print("Ingrese el ID del jugador a buscar: ");
         int id = scanner.nextInt();
         System.out.println(" ");
-        Jugador jugador1 = jugadorI.buscarId(id);
-        if (jugador1 != null) {
-            System.out.println("Jugador encontrado: " + jugador1);
+        jugador = jugadorI.buscarId(id);
+        if (jugador != null) {
+            System.out.println("Jugador encontrado: " + jugador);
             System.out.println(" ");
         } else {
             System.out.println("Jugador no encontrado.");
