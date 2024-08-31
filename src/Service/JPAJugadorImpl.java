@@ -17,8 +17,6 @@ public class JPAJugadorImpl implements JPAJugador {
     private static List<Jugador> jugadores = new ArrayList<Jugador>();
     public static Jugador jugador;
 
-    
-    
     @Override
     public void crear(Jugador jugador) {
 //        jugador = new Jugador(nombre, email, telefono);
@@ -36,13 +34,13 @@ public class JPAJugadorImpl implements JPAJugador {
 
     @Override
     public void actualizar(String nombre, String email, String telefono, int id) {
-
+        jugador = buscarId(id);
         for (Jugador jugador : jugadores) {
             if (jugador.getId() == id) {
                 jugador.setNombre(nombre);
                 jugador.setEmail(email);
                 jugador.setTelefono(telefono);
-                jugadores.set(id, jugador);
+                System.out.println("Jugador actualizado ");
                 break;
             }
         }
@@ -58,18 +56,13 @@ public class JPAJugadorImpl implements JPAJugador {
     }
 
     @Override
-    public void buscarId(int id) {
-         for (Jugador jugador : jugadores) {
+    public Jugador buscarId(int id) {
+        for (Jugador jugador : jugadores) {
             if (jugador.getId() == id) {
-                System.out.println(" ");
-                System.out.println("Se ha encontrado el jugador con Id:" + id);
-                System.out.println(" ");
-                System.out.println(jugador.toString());
-            }else{
-            System.out.println("No se encuentra el jugador con ID:" + id);
+                return jugador;
             }
-                
-     }
+        }
+        return null;
     }
 
     static void printJugadores(List<Jugador> jugadores) {

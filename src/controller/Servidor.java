@@ -78,31 +78,46 @@ public class Servidor {
 
     public void buscarJugador() {
         this.jugadorI = new JPAJugadorImpl();
-         Scanner scanner = new Scanner(System.in);
-           System.out.print("Ingrese el ID del jugador a buscar: ");
-           int id = scanner.nextInt();
-           jugadorI.buscarId(id);
-           Menu();
-           
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el ID del jugador a buscar: ");
+        int id = scanner.nextInt();
+        Jugador jugador1 = jugadorI.buscarId(id);
+        if (jugador1 != null) {
+            System.out.println("Jugador encontrado: " + jugador1);
+        } else {
+            System.out.println("Jugador no encontrado.");
+        }
+        Menu();
     }
-    
-    public void modificarJugador(){
-    this.jugadorI = new JPAJugadorImpl();
-    Scanner scanner = new Scanner(System.in);
+
+    public void modificarJugador() {
+        this.jugadorI = new JPAJugadorImpl();
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el id del jugador a editar ");
         int id = scanner.nextInt();
-        jugadorI.buscarId(id);
-        System.out.print("Nombre del jugador: ");
-        String nombre = scanner.nextLine();
-        System.out.print("email : ");
-        String email = scanner.nextLine();
-        System.out.print("telefono : ");
-        String telefono = scanner.nextLine();
-    
-    
-    
-    
+        Jugador jugador1 = jugadorI.buscarId(id);
+        if (jugador1 != null) {
+            System.out.println("Jugador encontrado: " + jugador1);
+            scanner.nextLine(); // Limpiar el buffer
+
+            System.out.print("Nuevo nombre del jugador: ");
+            String nwNombre = scanner.nextLine();
+            System.out.print("Nueva email del jugador: ");
+            String nwEmail = scanner.nextLine();
+
+            System.out.print("Nuevo telefono del jugador: ");
+            String nwTelefono =scanner.nextLine();
+            
+            jugadorI.actualizar(nwNombre, nwEmail, nwEmail, id);
+                      
+            
+            
+            
+        } else {
+            System.out.println("Jugador no encontrado.");
+        }
+
+        Menu();
     }
-    
-    
+
 }

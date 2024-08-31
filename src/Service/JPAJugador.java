@@ -14,5 +14,5 @@ public interface JPAJugador {
     public List<Jugador>  mostrarTodos();
     public void actualizar(String nombre, String email, String telefono, int id);
     public void borrar(int id);
-    public void buscarId(int id);
+    public Jugador buscarId(int id);
 }
