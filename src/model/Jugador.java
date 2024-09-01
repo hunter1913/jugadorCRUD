@@ -13,14 +13,14 @@ public class Jugador {
     private String email;
     private String telefono;
     private static int contadorJugadores;
-    
-    public Jugador(){
-    this.id = ++Jugador.contadorJugadores;
-    
+
+    public Jugador() {
+        this.id = ++Jugador.contadorJugadores;
+
     }
 
     public Jugador(String nombre, String email, String telefono) {
-        this(); 
+        this();
         this.nombre = nombre;
         this.email = email;
         this.telefono = telefono;
@@ -33,13 +33,9 @@ public class Jugador {
         this.telefono = telefono;
     }
 
-    
-    
     public int getId() {
         return id;
     }
-
-
 
     public String getNombre() {
         return nombre;

@@ -10,8 +10,9 @@ public class Servidor {
     static int opcion = -1;
     private JPAJugador jugadorI;
     private Jugador jugador;
+    
 
-    public void Menu() {
+    public void menu() {
         Scanner scanner = new Scanner(System.in);
         System.out.println(" JUGADOR CRUD ");
         System.out.println("------------------------------------------");
@@ -60,14 +61,14 @@ public class Servidor {
         jugador = new Jugador(nombre, email, telefono);
         jugadorI.crear(jugador);
         System.out.println(" ");
-        Menu();
+        menu();
 
     }
 
     public void listarJugadores() {
         this.jugadorI = new JPAJugadorImpl();
         jugadorI.mostrarTodos();
-        Menu();
+        menu();
     }
 
     public void buscarJugador() {
@@ -85,7 +86,7 @@ public class Servidor {
             System.out.println("Jugador no encontrado.");
             System.out.println(" ");
         }
-        Menu();
+        menu();
     }
 
     public void modificarJugador() {
@@ -109,7 +110,7 @@ public class Servidor {
         } else {
             System.out.println("Jugador no encontrado.");
         }
-        Menu();
+        menu();
     }
 
     public void eliminarJugador() {
@@ -142,6 +143,6 @@ public class Servidor {
             System.out.println("Jugador no encontrado.");
             System.out.println(" ");
         }
-        Menu();
+        menu();
     }
 }
